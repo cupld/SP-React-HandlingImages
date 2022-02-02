@@ -27,6 +27,10 @@ function ProductModal({ oldProduct }) {
     else productStore.createProduct(product);
     handleClose();
   };
+  const handleImage = (event)=>{
+    setProduct({...product, image: event.target.files[0]});
+    
+  }
 
   return (
     <>
@@ -50,9 +54,9 @@ function ProductModal({ oldProduct }) {
               <InputGroup.Text>Image</InputGroup.Text>
               <FormControl
                 name="image"
-                value={product.image}
-                type="text"
-                onChange={handleChange}
+                //value={product.image}   value should be removed
+                type="file"
+                onChange={handleImage}
                 placeholder="Image"
               />
             </InputGroup>
